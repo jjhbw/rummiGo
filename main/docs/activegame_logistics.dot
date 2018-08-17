@@ -1,0 +1,36 @@
+digraph G {
+
+	Player
+	GameState
+	ActivateGame [label="ActivateGame()"]
+	ActiveGame
+
+	subscribe [shape=box, style=filled]
+	unsubscribe [shape=box, style=filled]
+	closer [shape=box, style=filled]
+	gameManager [label="ActiveGame.gameManager()"]
+	connectPlayer [label="ActiveGame.connectPlayer()"]
+	Client
+	Clientstore [label="ActiveGame.clients"]
+
+	// initiate game from dead state
+	Player -> GameState
+	GameState -> ActivateGame -> ActiveGame
+
+	// activated goroutines
+	ActivateGame -> gameManager [label="spins off"]
+
+	# active channels
+	ActiveGame -> subscribe [color="red" style=dotted]
+	ActiveGame -> unsubscribe [color="red" style=dotted]
+	ActiveGame -> closer [color="red" style=dotted]
+
+	# channel listeners
+	subscribe -> gameManager [color="red" style=dotted, label="listens to"]
+	unsubscribe -> gameManager [color="red" style=dotted]
+	closer -> gameManager [color="red" style=dotted]
+
+	# subscribe the player as a client
+	Player -> connectPlayer -> Client
+
+}
