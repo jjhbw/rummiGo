@@ -11,12 +11,13 @@ Not everyone plays Rummikub the same way. This program maps the search space of 
 
 # TODO
 
-- [ ] build web UI
-- [ ] finish unit tests for the websockets game server
-- [ ] put all the server code in a docker container: `libglpk` does not behave well outside of Ubuntu
-- [ ] cite paper that inspired the ILP formulation of the Rummikub problem
+- [ ] see all `TODO` tags in the code
 - [ ] clean up all 'prototypey' code
 - [ ] clean up the math
+- [ ] build web UI
+- [ ] finish tests for the websockets game server
+- [ ] put all the server code in a docker container, because `libglpk` does not behave well outside of Ubuntu.
+- [ ] cite paper that inspired the ILP formulation of the Rummikub problem
 - [ ] rephrase 'set' and 'row' into 'group' and 'run' to prevent confusion
 
 # Dependencies
